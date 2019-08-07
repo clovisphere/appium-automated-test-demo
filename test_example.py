@@ -6,8 +6,10 @@ PLATFORM = 'Android'
 PLATFORM_VERSION = '8'
 DEVICE = 'Android Emulator'
 AUTOMATION_NAME = 'UiAutomator2'
-# absolute path to the apk, or the URL (if hosted somewhere on the internet)
-APK_ABSOLUTE_PATH = ''
+# returns absolute path relative to the file
+PATH = lambda p: os.path.abspath(
+    os.path.join(os.path.dirname(__file__), p)
+)
 # appium local development host
 HOST = 'http://localhost:4723/wd/hub'
 WAIT_TIME = 5000
@@ -23,7 +25,7 @@ class TestExampleApk:
             'automationName': AUTOMATION_NAME,
             'platformVersion': PLATFORM_VERSION,
             'deviceName': DEVICE,
-            'app': APK_ABSOLUTE_PATH
+            'app': PATH('/sample/ContactManager.apk') 
         }
         # initialize webdriver
         app = webdriver.Remote(HOST, settings)
