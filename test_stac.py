@@ -39,7 +39,7 @@ class TestJumoStacApp:
         request.addfinalizer(fin)
         return app
 
-    def test_login(self, driver):
+    def test_view_educational_screen(self, driver):
         driver.find_element_by_android_uiautomator('text("English")').click()
         driver.find_element_by_id('7c48e2b8-a788-497e-b31c-0b7339d656ff').click()
         driver.find_element_by_android_uiautomator('text("ALLOW")').click()
