@@ -40,5 +40,9 @@ class TestJumoStacApp:
         return app
 
     def test_login(self, driver):
-        el = driver.find_element_by_android_uiautomator('text("English")')
-        el.click()
+        driver.find_element_by_android_uiautomator('text("English")').click()
+        driver.find_element_by_id('7c48e2b8-a788-497e-b31c-0b7339d656ff').click()
+        driver.find_element_by_android_uiautomator('text("ALLOW")').click()
+
+        el = driver.find_elements_by_class_name('android.widget.TextView')
+        assert 'You can get an instant loan on your phone.' == el[1].text
