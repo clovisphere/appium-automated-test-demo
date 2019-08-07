@@ -1,3 +1,4 @@
+import os
 import pytest
 from appium import webdriver
 
@@ -19,13 +20,11 @@ class TestExampleApk:
     @pytest.fixture(scope='function')
     def driver(self, request):
         settings = {
-            # 'appPackage': 'world.jumo.now',
-            # 'appActivity': '.MainApplication',
             'platformName': PLATFORM,
             'automationName': AUTOMATION_NAME,
             'platformVersion': PLATFORM_VERSION,
             'deviceName': DEVICE,
-            'app': PATH('/sample/ContactManager.apk') 
+            'app': PATH('/sample/ContactManager.apk')
         }
         # initialize webdriver
         app = webdriver.Remote(HOST, settings)
@@ -40,4 +39,5 @@ class TestExampleApk:
         return app
 
     def test_add_contact(self, driver):
-        pass
+        el = driver.find_element_by_accessibility_id('Add Contact')
+        el.click()
