@@ -13,10 +13,10 @@ PATH = lambda p: os.path.abspath(
 )
 # appium local development host
 HOST = 'http://localhost:4723/wd/hub'
-WAIT_TIME = 5000
+WAIT_TIME = 3000
 
 
-class TestExampleApk:
+class TestIBMDemoApk:
     @pytest.fixture(scope='function')
     def driver(self, request):
         settings = {
@@ -24,7 +24,7 @@ class TestExampleApk:
             'automationName': AUTOMATION_NAME,
             'platformVersion': PLATFORM_VERSION,
             'deviceName': DEVICE,
-            'app': PATH('/sample/ContactManager.apk')
+            'app': PATH('sample/demo.apk')
         }
         # initialize webdriver
         app = webdriver.Remote(HOST, settings)
@@ -38,6 +38,7 @@ class TestExampleApk:
         request.addfinalizer(fin)
         return app
 
-    def test_add_contact(self, driver):
-        el = driver.find_element_by_accessibility_id('Add Contact')
-        el.click()
+    def test_navigate_to_login_screen(self, driver):
+        driver.find_element_by_class_name('android.widget.Spinner').click()
+        driver.find_element_by_android_uiautomator('text("Profile")').click()
+        assert driver.find_element_by_android_uiautomator('text("Log in to IBM")').is_displayed()
