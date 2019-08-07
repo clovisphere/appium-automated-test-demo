@@ -39,5 +39,5 @@ class TestExampleApk:
         request.addfinalizer(fin)
         return app
 
-    def test_(self, driver):
+    def test_add_contact(self, driver):
         pass
