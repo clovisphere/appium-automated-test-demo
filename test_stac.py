@@ -1,15 +1,13 @@
-import os
 import pytest
 from appium import webdriver
 
-# let's define some constants
+# let's define some constants // change them accordingly
 PLATFORM = 'Android'
 PLATFORM_VERSION = '8'
 DEVICE = 'Android Emulator'
 AUTOMATION_NAME = 'UiAutomator2'
-# get apk path
-PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), p))
-APK_LOCATION = '../../../work/eng-jumo-now-app/packages/jumo-now.apk'
+# absolute path to the apk, or the URL (if hosted somewhere on the internet)
+APK_ABSOLUTE_PATH = ''
 # appium local development host
 HOST = 'http://localhost:4723/wd/hub'
 WAIT_TIME = 5000
@@ -25,8 +23,7 @@ class TestJumoStacApp:
             'automationName': AUTOMATION_NAME,
             'platformVersion': PLATFORM_VERSION,
             'deviceName': DEVICE,
-            # TODO: find a better way to load/find the apk
-            'app': PATH(APK_LOCATION)
+            'app': APK_ABSOLUTE_PATH
         }
         # initialize webdriver
         app = webdriver.Remote(HOST, settings)
