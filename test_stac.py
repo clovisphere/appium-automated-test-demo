@@ -17,8 +17,8 @@ class TestJumoStacApp:
     @pytest.fixture(scope='function')
     def driver(self, request):
         settings = {
-            #'appPackage': 'world.jumo.now',
-            #'appActivity': '.MainApplication',
+            # 'appPackage': 'world.jumo.now',
+            # 'appActivity': '.MainApplication',
             'platformName': PLATFORM,
             'automationName': AUTOMATION_NAME,
             'platformVersion': PLATFORM_VERSION,
