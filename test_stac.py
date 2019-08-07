@@ -13,6 +13,7 @@ PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), p))
 HOST = 'http://localhost:4723/wd/hub'
 WAIT_TIME = 5000
 
+
 class TestJumoStacApp:
     @pytest.fixture(scope='function')
     def driver(self, request):
@@ -28,7 +29,7 @@ class TestJumoStacApp:
         }
         # initialize webdriver
         app = webdriver.Remote(HOST, settings)
-        # to deal with the fact that the splash screen takes some time
+        # to give the splash screen time to load
         app.implicitly_wait(WAIT_TIME)
 
         def fin():
@@ -39,5 +40,5 @@ class TestJumoStacApp:
         return app
 
     def test_login(self, driver):
-        el = driver.find_element_by_class_name('android.widget.TextView')
+        el = driver.find_element_by_android_uiautomator('text("English")')
         el.click()
