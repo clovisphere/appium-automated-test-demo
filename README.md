@@ -8,10 +8,9 @@ version [1.13.0](https://github.com/appium/appium-desktop/releases/tag/v1.13.0).
 for client script, I am using [Python](https://www.python.org/) 'cause Python is cool:wink:
 
 #### USAGE
-
 Install required package:
 
-Using [pipenv](https://pipenv.readthedocs.io/en/latest/), [virtualenv](https://virtualenv.pypa.io/en/latest/) or [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
+(recommended): [pipenv](https://pipenv.readthedocs.io/en/latest/), [virtualenv](https://virtualenv.pypa.io/en/latest/) or [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
 
 ```
 cd {APP_DIRECTORY} && pip install -r requirements.txt
