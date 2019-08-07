@@ -11,7 +11,7 @@ AUTOMATION_NAME = 'UiAutomator2'
 PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), p))
 # appium local development host
 HOST = 'http://localhost:4723/wd/hub'
-
+WAIT_TIME = 5000
 
 class TestJumoStacApp:
     @pytest.fixture(scope='function')
@@ -28,6 +28,8 @@ class TestJumoStacApp:
         }
         # initialize webdriver
         app = webdriver.Remote(HOST, settings)
+        # to deal with the fact that the splash screen takes some time
+        app.implicitly_wait(WAIT_TIME)
 
         def fin():
             """teardown test(s)."""
@@ -37,4 +39,5 @@ class TestJumoStacApp:
         return app
 
     def test_login(self, driver):
-        assert True
+        el = driver.find_element_by_class_name('android.widget.TextView')
+        el.click()
