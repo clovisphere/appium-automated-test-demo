@@ -37,4 +37,4 @@ class JumoStacApp:
         return app
 
     def test_login(self, driver):
-        pass
+        print('this is a test')
