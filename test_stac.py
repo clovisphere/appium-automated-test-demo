@@ -1,5 +1,4 @@
 import os
-import time
 import pytest
 from appium import webdriver
 
@@ -47,5 +46,4 @@ class TestJumoStacApp:
         driver.find_element_by_android_uiautomator('text("ALLOW")').click()
 
         el = driver.find_elements_by_class_name('android.widget.TextView')
-        time.sleep(WAIT_TIME)
         assert 'You can get an instant loan on your phone.' == el[0].text
