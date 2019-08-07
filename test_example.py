@@ -1,7 +1,7 @@
 import pytest
 from appium import webdriver
 
-# let's define some constants // change them accordingly
+# let's define some constants
 PLATFORM = 'Android'
 PLATFORM_VERSION = '8'
 DEVICE = 'Android Emulator'
@@ -13,7 +13,7 @@ HOST = 'http://localhost:4723/wd/hub'
 WAIT_TIME = 5000
 
 
-class TestJumoStacApp:
+class TestExampleApk:
     @pytest.fixture(scope='function')
     def driver(self, request):
         settings = {
@@ -37,10 +37,5 @@ class TestJumoStacApp:
         request.addfinalizer(fin)
         return app
 
-    def test_view_educational_screen(self, driver):
-        driver.find_element_by_android_uiautomator('text("English")').click()
-        driver.find_element_by_android_uiautomator('text("Continue")').click()
-        driver.find_element_by_android_uiautomator('text("ALLOW")').click()
-
-        el = driver.find_elements_by_class_name('android.widget.TextView')
-        assert 'You can get an instant loan on your phone.' == el[0].text
+    def test_(self, driver):
+        pass
