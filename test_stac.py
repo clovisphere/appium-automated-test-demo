@@ -1,4 +1,5 @@
 import os
+import time
 import pytest
 from appium import webdriver
 
@@ -9,6 +10,7 @@ DEVICE = 'Android Emulator'
 AUTOMATION_NAME = 'UiAutomator2'
 # get apk path
 PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), p))
+APK_LOCATION = '../../../work/eng-jumo-now-app/packages/jumo-now.apk'
 # appium local development host
 HOST = 'http://localhost:4723/wd/hub'
 WAIT_TIME = 5000
@@ -25,7 +27,7 @@ class TestJumoStacApp:
             'platformVersion': PLATFORM_VERSION,
             'deviceName': DEVICE,
             # TODO: find a better way to load/find the apk
-            'app': PATH('../../../work/eng-jumo-now-app/packages/jumo-now.apk')
+            'app': PATH(APK_LOCATION)
         }
         # initialize webdriver
         app = webdriver.Remote(HOST, settings)
@@ -45,4 +47,5 @@ class TestJumoStacApp:
         driver.find_element_by_android_uiautomator('text("ALLOW")').click()
 
         el = driver.find_elements_by_class_name('android.widget.TextView')
+        time.sleep(WAIT_TIME)
         assert 'You can get an instant loan on your phone.' == el[0].text
