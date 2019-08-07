@@ -17,8 +17,8 @@ class JumoStacApp:
     @pytest.fixture(scope='function')
     def driver(self, request):
         settings = {
-            'appPackage': 'world.jumo.now',
-            'appActivity': '.MainApplication',
+            #'appPackage': 'world.jumo.now',
+            #'appActivity': '.MainApplication',
             'platformName': PLATFORM,
             'automationName': AUTOMATION_NAME,
             'platformVersion': PLATFORM_VERSION,
@@ -37,4 +37,4 @@ class JumoStacApp:
         return app
 
     def test_login(self, driver):
-        print('this is a test')
+        assert True
