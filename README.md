@@ -11,7 +11,7 @@ SO USE AT YOUR OWN RISK:speak_no_evil:
 Download the [Appium](http://appium.io/) server, 
 I am using version [1.13.0](https://github.com/appium/appium-desktop/releases/tag/v1.13.0) 
 for this demo. The client script is written in [Python](https://www.python.org/), 
-so make sure you have [Python](https://www.python.org/) setup.
+so make sure you have [Python](https://www.python.org/) installed.
 
 What you should have:
 ![Appium Server & Android Emulator](img/android+appium.png)
