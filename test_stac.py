@@ -13,7 +13,7 @@ PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), p))
 HOST = 'http://localhost:4723/wd/hub'
 
 
-class JumoStacApp:
+class TestJumoStacApp:
     @pytest.fixture(scope='function')
     def driver(self, request):
         settings = {
